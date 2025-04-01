@@ -155,7 +155,7 @@ namespace array
                     Console.WriteLine("Невірний вибір. Спробуйте ще раз.");
                     break;
             }
-            PrintJaggedArray(jaggedArray);
+            //PrintJaggedArray(jaggedArray);
             return jaggedArray;
         }
         static int[][] InputJaggedArray(int[][] jaggedArray)
@@ -236,6 +236,24 @@ namespace array
                 }
                 Console.WriteLine();
             }
+        }
+        public int[][] AddRowBeforeMaxOrMinValue(int[][] arr, int index)
+        {
+            ArrayMy arrayHelper = new ArrayMy();
+
+            int[][] newArr = new int[arr.Length + 1][];
+
+            for (int i = 0, j = 0; i < arr.Length; i++, j++)
+            {
+                if (i == index)
+                {
+                    Console.WriteLine("Зараз виконаємо заповнення рядка");
+                    newArr[j++] = arrayHelper.FillArray();
+                }
+                newArr[j] = arr[i];
+
+            }
+            return newArr;
         }
     }
 }
