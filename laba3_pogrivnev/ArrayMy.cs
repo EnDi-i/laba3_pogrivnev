@@ -7,15 +7,15 @@ namespace array
 {
     public class ArrayMy
     {
-        public int[] FillArray()
+        public static int[] FillArray()
         {
-            Console.WriteLine("Введіть розмір масиву:");
+            Console.WriteLine("Введіть розмір:");
             int size = SizeArray();
 
             int[] arr = new int[size];
             int choice;
 
-            Console.WriteLine("Як ви хочите заповнити масив? (1 - випадковими числами, 2 - з клавіатури, 3 - кожен елемент з нового рядка)");
+            Console.WriteLine("Як ви хочите заповнити? (1 - випадковими числами, 2 - з клавіатури, 3 - кожен елемент з нового рядка)");
             choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -32,7 +32,6 @@ namespace array
                     Console.WriteLine("Невірний вибір. Спробуйте ще раз.");
                     break;
             }
-            PrintArray(arr);
             return arr;
         }
         public static int SizeArray()
@@ -113,7 +112,7 @@ namespace array
             return arr;
         }
 
-        public void PrintArray(int[] arr)
+        public static void PrintArray(int[] arr)
         {
             if (arr == null || arr.Length == 0)
             {
@@ -132,7 +131,7 @@ namespace array
     }
     public class JaggedArray
     {
-        public int[][] FillJaggedArray()
+        public static int[][] FillJaggedArray()
         {
 
 
@@ -156,7 +155,7 @@ namespace array
                     Console.WriteLine("Невірний вибір. Спробуйте ще раз.");
                     break;
             }
-            PrintJaggedArray(jaggedArray);
+            //PrintJaggedArray(jaggedArray);
             return jaggedArray;
         }
         static int[][] InputJaggedArray(int[][] jaggedArray)
@@ -178,15 +177,15 @@ namespace array
         }
         static int[][] RandomJaggedArray(int[][] jaggedArray)
         {
-            Console.WriteLine("Як ви бажаєте встановити кількість елементів в рядку? (1-самостійно; 2-рандомно");
+            Console.WriteLine("Як ви бажаєте встановити кількість елементів в рядку? (1-самостійно; 2-рандомно)");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
                 case 1:
-                    ColsRandom(jaggedArray);
+                    ColsInput(jaggedArray);
                     break;
                 case 2:
-                    ColsInput(jaggedArray);
+                    ColsRandom(jaggedArray);
                     break;
                 default:
                     Console.WriteLine("Невірний вибір. Спробуйте ще раз.");
@@ -226,7 +225,7 @@ namespace array
             }
             return jaggedArray;
         }
-        public void PrintJaggedArray(int[][] jaggedArray)
+        public static void PrintJaggedArray(int[][] jaggedArray)
         {
             Console.WriteLine("Зубчастий масив:");
             foreach (int[] i in jaggedArray)
@@ -237,6 +236,22 @@ namespace array
                 }
                 Console.WriteLine();
             }
+        }
+        public static int[][] AddRowBeforeMaxOrMinValue(int[][] arr, int index)
+        {
+            int[][] newArr = new int[arr.Length + 1][];
+
+            for (int i = 0, j = 0; i < arr.Length; i++, j++)
+            {
+                if (i == index)
+                {
+                    Console.WriteLine("Зараз виконаємо заповнення рядка");
+                    newArr[j++] = ArrayMy.FillArray();
+                }
+                newArr[j] = arr[i];
+
+            }
+            return newArr;
         }
     }
 }
