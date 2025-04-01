@@ -12,6 +12,7 @@ namespace zalata
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Варіант 2 - Знищити останній від’ємний елемент.");
             ArrayMy arrayHelper = new ArrayMy();
+            //arrayHelper.PrintArray(myArray);
             myArray = DestroyLastElement(myArray);
             arrayHelper.PrintArray(myArray);
         }
@@ -19,17 +20,20 @@ namespace zalata
         static int FindLastElement(int[] arr)
         {
             int lastMinus = 0;
-            for (int i = arr.Length - 1; i >= 0; i--)
+            bool flak = true;  
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] < 0)
-                {
+                { 
                     lastMinus = i;
-                    break;
+                    flak = false;
                 }
-                else
-                {
-                    Console.WriteLine("Введений масив не має від'ємних чисел");
-                }
+               
+            }
+            if (flak)
+            {
+                Console.WriteLine("Введений масив не має від'ємних чисел");
+                
             }
             return lastMinus;
         }
@@ -49,13 +53,17 @@ namespace zalata
             return newArr;
         }
 
-        public void Variant13()
+        public void Variant13(int[][] myJaggedArray)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Варіант 13 - Додати рядок перед рядком, що містить мінімальний елемент.");
             JaggedArray arrayJaggedHelper = new JaggedArray();
-            int[][] myJaggedArray = arrayJaggedHelper.FillJaggedArray();
-            myJaggedArray = (myJaggedArray);
+            //int[][] myJaggedArray = arrayJaggedHelper.FillJaggedArray();
+            int minindex = minRow(myJaggedArray);
+            myJaggedArray = arrayJaggedHelper.AddRowBeforeMaxOrMinValue(myJaggedArray, minindex);
+            arrayJaggedHelper.PrintJaggedArray(myJaggedArray);
+
+
         }
 
         static int minRow(int[][] arr)
@@ -75,5 +83,6 @@ namespace zalata
             }
             return row;
         }
+
     }
 }
