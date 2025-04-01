@@ -9,7 +9,7 @@ namespace sydorenko
 {
     public class Varianti9_12
     {
-        public static void Variant9(int[] myArray)
+        public static void Variant9(ref int[] myArray)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Варіант 9 - Знищити всі елементи між першим із максимальних за значенням і останнім із мінімальних за значенням; самі перший з максимальних та останній з мінімальних теж знищити; врахувати, що невідомо, який з них записано в масиві раніше");
@@ -69,7 +69,7 @@ namespace sydorenko
             }
             return newArr;
         }
-        public static void Variant12(int[][] myJaggedArray)
+        public static void Variant12(ref int[][] myJaggedArray)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("12. Додати рядок перед рядком, що містить максимальний елемент (якщо у різних місцях є кілька елементів з однаковим максимальним значенням, то брати останній з них");
@@ -98,6 +98,6 @@ namespace sydorenko
                 }
             }
             return maxRow;
-        } 
+        }
     }
 }
