@@ -9,13 +9,13 @@ namespace array
     {
         public int[] FillArray()
         {
-            Console.WriteLine("Введіть розмір масиву:");
+            Console.WriteLine("Введіть розмір:");
             int size = SizeArray();
 
             int[] arr = new int[size];
             int choice;
 
-            Console.WriteLine("Як ви хочите заповнити масив? (1 - випадковими числами, 2 - з клавіатури, 3 - кожен елемент з нового рядка)");
+            Console.WriteLine("Як ви хочите заповнити? (1 - випадковими числами, 2 - з клавіатури, 3 - кожен елемент з нового рядка)");
             choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -32,7 +32,6 @@ namespace array
                     Console.WriteLine("Невірний вибір. Спробуйте ще раз.");
                     break;
             }
-            PrintArray(arr);
             return arr;
         }
         public static int SizeArray()
@@ -178,15 +177,15 @@ namespace array
         }
         static int[][] RandomJaggedArray(int[][] jaggedArray)
         {
-            Console.WriteLine("Як ви бажаєте встановити кількість елементів в рядку? (1-самостійно; 2-рандомно");
+            Console.WriteLine("Як ви бажаєте встановити кількість елементів в рядку? (1-самостійно; 2-рандомно)");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
                 case 1:
-                    ColsRandom(jaggedArray);
+                    ColsInput(jaggedArray);
                     break;
                 case 2:
-                    ColsInput(jaggedArray);
+                    ColsRandom(jaggedArray);
                     break;
                 default:
                     Console.WriteLine("Невірний вибір. Спробуйте ще раз.");
