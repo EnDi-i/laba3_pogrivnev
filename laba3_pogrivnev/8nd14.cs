@@ -7,7 +7,7 @@ namespace holtvanski
 {
     public class Varianti8_14
     {
-        public void Variant8(int[] myArray)
+        public static void Variant8(ref int[] myArray)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Варіант 8 - Знищити всі елементи з непарними індексами");
@@ -64,7 +64,7 @@ namespace holtvanski
             }
             return newArr.ToArray();
         }
-        public void Variant14(int[][] myJaggedArray)
+        public static void Variant14(ref int[][] myJaggedArray)
         {
 
 
