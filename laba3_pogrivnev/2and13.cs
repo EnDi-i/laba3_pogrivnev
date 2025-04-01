@@ -24,6 +24,7 @@ namespace zalata
                 if (arr[i] < 0)
                 {
                     lastMinus = i;
+                    break;
                 }
                 else
                 {
@@ -48,6 +49,31 @@ namespace zalata
             return newArr;
         }
 
+        public void Variant13()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("Варіант 13 - Додати рядок перед рядком, що містить мінімальний елемент.");
+            JaggedArray arrayJaggedHelper = new JaggedArray();
+            int[][] myJaggedArray = arrayJaggedHelper.FillJaggedArray();
+            myJaggedArray = (myJaggedArray);
+        }
 
+        static int minRow(int[][] arr)
+        {
+            int minElement = int.MaxValue;
+            int row = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    if (arr[i][j] < minElement)
+                    {
+                        minElement = arr[i][j];
+                        row = i;
+                    }
+                }
+            }
+            return row;
+        }
     }
 }
