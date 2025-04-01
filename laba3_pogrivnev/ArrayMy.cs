@@ -7,7 +7,7 @@ namespace array
 {
     public class ArrayMy
     {
-        public int[] FillArray()
+        public static int[] FillArray()
         {
             Console.WriteLine("Введіть розмір:");
             int size = SizeArray();
@@ -112,7 +112,7 @@ namespace array
             return arr;
         }
 
-        public void PrintArray(int[] arr)
+        public static void PrintArray(int[] arr)
         {
             if (arr == null || arr.Length == 0)
             {
@@ -131,7 +131,7 @@ namespace array
     }
     public class JaggedArray
     {
-        public int[][] FillJaggedArray()
+        public static int[][] FillJaggedArray()
         {
 
 
@@ -225,7 +225,7 @@ namespace array
             }
             return jaggedArray;
         }
-        public void PrintJaggedArray(int[][] jaggedArray)
+        public static void PrintJaggedArray(int[][] jaggedArray)
         {
             Console.WriteLine("Зубчастий масив:");
             foreach (int[] i in jaggedArray)
@@ -237,10 +237,8 @@ namespace array
                 Console.WriteLine();
             }
         }
-        public int[][] AddRowBeforeMaxOrMinValue(int[][] arr, int index)
+        public static int[][] AddRowBeforeMaxOrMinValue(int[][] arr, int index)
         {
-            ArrayMy arrayHelper = new ArrayMy();
-
             int[][] newArr = new int[arr.Length + 1][];
 
             for (int i = 0, j = 0; i < arr.Length; i++, j++)
@@ -248,7 +246,7 @@ namespace array
                 if (i == index)
                 {
                     Console.WriteLine("Зараз виконаємо заповнення рядка");
-                    newArr[j++] = arrayHelper.FillArray();
+                    newArr[j++] = ArrayMy.FillArray();
                 }
                 newArr[j] = arr[i];
 
