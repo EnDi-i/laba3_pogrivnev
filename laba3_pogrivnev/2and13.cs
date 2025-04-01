@@ -7,33 +7,32 @@ namespace zalata
 {
     public class variant2and13
     {
-        public void Variant2(int[] myArray)
+        public static void Variant2(ref int[] myArray)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Варіант 2 - Знищити останній від’ємний елемент.");
-            ArrayMy arrayHelper = new ArrayMy();
             //arrayHelper.PrintArray(myArray);
             myArray = DestroyLastElement(myArray);
-            arrayHelper.PrintArray(myArray);
+            ArrayMy.PrintArray(myArray);
         }
 
         static int FindLastElement(int[] arr)
         {
             int lastMinus = 0;
-            bool flak = true;  
+            bool flak = true;
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] < 0)
-                { 
+                {
                     lastMinus = i;
                     flak = false;
                 }
-               
+
             }
             if (flak)
             {
                 Console.WriteLine("Введений масив не має від'ємних чисел");
-                
+
             }
             return lastMinus;
         }
@@ -53,15 +52,14 @@ namespace zalata
             return newArr;
         }
 
-        public void Variant13(int[][] myJaggedArray)
+        public static void Variant13(ref int[][] myJaggedArray)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Варіант 13 - Додати рядок перед рядком, що містить мінімальний елемент.");
-            JaggedArray arrayJaggedHelper = new JaggedArray();
             //int[][] myJaggedArray = arrayJaggedHelper.FillJaggedArray();
             int minindex = minRow(myJaggedArray);
-            myJaggedArray = arrayJaggedHelper.AddRowBeforeMaxOrMinValue(myJaggedArray, minindex);
-            arrayJaggedHelper.PrintJaggedArray(myJaggedArray);
+            myJaggedArray = JaggedArray.AddRowBeforeMaxOrMinValue(myJaggedArray, minindex);
+            JaggedArray.PrintJaggedArray(myJaggedArray);
 
 
         }
