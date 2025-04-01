@@ -11,7 +11,6 @@ namespace holtvanski
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.WriteLine("Варіант 8 - Знищити всі елементи з непарними індексами");
-            ArrayMy arrayHelper = new ArrayMy();
             if (myArray == null || myArray.Length == 0)
             {
                 Console.WriteLine("Масив порожній або не ініціалізований.");
@@ -23,7 +22,7 @@ namespace holtvanski
             //myArray = RemoveOddIndexElementsList(myArray);
             //RemoveOddIndexElementsResize(ref myArray);
 
-            arrayHelper.PrintArray(myArray);
+            ArrayMy.PrintArray(myArray);
 
         }
 
@@ -68,7 +67,6 @@ namespace holtvanski
         public void Variant14(int[][] myJaggedArray)
         {
 
-            JaggedArray arrayJaggedHelper = new JaggedArray();
 
             //int[][] myJaggedArray = arrayJaggedHelper.FillJaggedArray();
             Console.WriteLine("14. Додати рядок після рядка, що містить мінімальний елемент (якщо у різних місцях є кілька елементів з однаковим мінімальним значенням, то брати останній з них)");
@@ -78,7 +76,7 @@ namespace holtvanski
                 return;
             }
             myJaggedArray = AddRowAfterMinValue(myJaggedArray);
-            arrayJaggedHelper.PrintJaggedArray(myJaggedArray);
+            JaggedArray.PrintJaggedArray(myJaggedArray);
         }
         static int MinValueJaggedArray(int[][] arr)
         {
@@ -99,7 +97,7 @@ namespace holtvanski
         }
         static int[][] AddRowAfterMinValue(int[][] arr)
         {
-            ArrayMy arrayHelper = new ArrayMy();
+            
             int minRow = MinValueJaggedArray(arr);
             Console.WriteLine($"Мінімальний елемент масиву знаходиться в рядку {minRow + 1}");
             int[][] newArr = new int[arr.Length + 1][];
@@ -110,7 +108,7 @@ namespace holtvanski
                 if (i == minRow)
                 {
                     Console.WriteLine("Зараз виконаємо заповння рядка, який буде доданий після рядка з останнім мінімальним елементом");
-                    newArr[++j] = arrayHelper.FillArray(); 
+                    newArr[++j] = ArrayMy.FillArray(); 
                     
                 }
             }
