@@ -30,7 +30,7 @@ namespace holtvanski
         {
             
 
-            int newSize = (arr.Length + 1) / 2;
+            int newSize = (arr.Length) / 2;
             int[] newArr = new int[newSize];
 
             int index = 0;
@@ -45,7 +45,7 @@ namespace holtvanski
         {
             
 
-            int newSize = (arr.Length + 1) / 2;
+            int newSize = (arr.Length) / 2;
             int index = 0;
             for (int i = 1; i < arr.Length; i += 2)
             {
