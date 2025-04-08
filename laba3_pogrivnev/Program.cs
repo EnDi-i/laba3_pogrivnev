@@ -24,7 +24,7 @@ namespace laba3
             do
             {
                 Console.WriteLine("Виберіть Блок(1/2) Для завершення - 0");
-                choice = Convert.ToInt32(Console.ReadLine());
+                choice = int.Parse(Console.ReadLine());
                 switch (choice)
                 {
                     case 1:
@@ -73,7 +73,7 @@ namespace laba3
 
 0. Повернутися назад.
 ");
-                choice = Convert.ToInt32(Console.ReadLine());
+                choice = int.Parse(Console.ReadLine());
                 int[] selectedArray = SelectArray(initialArray, variantArray);
                 switch (choice)
                 {
@@ -153,7 +153,7 @@ namespace laba3
 
 0. Повернутися назад.
 ");
-                choice = Convert.ToInt32(Console.ReadLine());
+                choice = int.Parse(Console.ReadLine());
                 int[][] selectedJaggedArray = SelectJaggedArray(initialJaggedArr, variantJaggedArr);
                 switch (choice)
                 {
@@ -213,7 +213,7 @@ namespace laba3
         static int[] SelectArray(int[] initialArray, int[] variantArray)
         {
             Console.WriteLine("Виберіть масив для використання (1 - початковий, 2 - варіант):");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            int choice = int.Parse(Console.ReadLine());
             switch (choice)
             {
                 case 1:
@@ -229,7 +229,7 @@ namespace laba3
         static int[][] SelectJaggedArray(int[][] initialJaggedArray, int[][] variantJaggedArray)
         {
             Console.WriteLine("Виберіть зубчастий масив для використання (1 - початковий, 2 - варіант):");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            int choice = int.Parse(Console.ReadLine());
             switch (choice)
             {
                 case 1:
