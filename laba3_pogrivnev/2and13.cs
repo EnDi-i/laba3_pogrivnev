@@ -18,7 +18,7 @@ namespace zalata
 
         static int FindLastElement(int[] arr)
         {
-            int lastMinus = 0;
+            int lastMinus = -1;
             bool flak = true;
             for (int i = 0; i < arr.Length; i++)
             {
@@ -31,8 +31,7 @@ namespace zalata
             }
             if (flak)
             {
-                Console.WriteLine("Введений масив не має від'ємних чисел");
-
+                Console.WriteLine("Не було знайдено від'ємних елементів. Масив залишився без змін.");
             }
             return lastMinus;
         }
@@ -40,6 +39,10 @@ namespace zalata
         static int[] DestroyLastElement(int[] arr)
         {
             int lastMinus = FindLastElement(arr);
+            if (lastMinus == -1)
+            {
+                 return arr;
+            }
             int[] newArr = new int[arr.Length - 1];
             int index = 0;
             for (int i = 0; i < arr.Length; i++)
