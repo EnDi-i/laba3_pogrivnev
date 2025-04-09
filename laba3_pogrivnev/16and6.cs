@@ -49,60 +49,67 @@ namespace kononenko
         }
         public static void Variant6(ref int[][] myJagged)
         {
-            Console.WriteLine("14.Знищити всі рядки, в яких є хоча б один елемент з нульовим значенням");
+            Console.WriteLine("14. Знищити всі рядки, в яких є хоча б один елемент з нульовим значенням");
+
             if (myJagged == null || myJagged.Length == 0)
             {
                 Console.WriteLine("Зубчастий масив порожній або не ініціалізований.");
                 return;
             }
+
             myJagged = NewJaggedArraywithoutzero(myJagged);
             JaggedArray.PrintJaggedArray(myJagged);
         }
-        static int DeleteRowsWithZero(int[][] myJaggedArray)
+
+        static int DeleteRowsWithZero(int[][] myJaggedArray, out int[] zeroRows, out int zeroCount)
         {
-            int count = 0;
+            zeroRows = new int[myJaggedArray.Length];
+            zeroCount = 0;
 
             for (int i = 0; i < myJaggedArray.Length; i++)
             {
-                bool hasZero = false;
                 for (int j = 0; j < myJaggedArray[i].Length; j++)
                 {
                     if (myJaggedArray[i][j] == 0)
                     {
-                        hasZero = true;
+                        zeroRows[zeroCount++] = i;
                         break;
                     }
                 }
-                if (!hasZero) count++;
             }
-            return count;
+            return myJaggedArray.Length - zeroCount;
         }
-            static int[][] NewJaggedArraywithoutzero(int[][] myJaggedArray)
-            {
-                int count = DeleteRowsWithZero(myJaggedArray);
-                int[][] filteredArray = new int[count][];
-                int index = 0;
 
-                for (int i = 0; i < myJaggedArray.Length; i++)
+        static int[][] NewJaggedArraywithoutzero(int[][] myJaggedArray)
+        {
+            int[] zeroRows;
+            int zeroCount;
+            int count = DeleteRowsWithZero(myJaggedArray, out zeroRows, out zeroCount);
+
+            int[][] filteredArray = new int[count][];
+            int index = 0;
+
+            for (int i = 0; i < myJaggedArray.Length; i++)
+            {
+                bool isZeroRow = false;
+                for (int k = 0; k < zeroCount; k++)
                 {
-                    bool hasZero = false;
-                    for (int j = 0; j < myJaggedArray[i].Length; j++)
+                    if (zeroRows[k] == i)
                     {
-                        if (myJaggedArray[i][j] == 0)
-                        {
-                            hasZero = true;
-                            break;
-                        }
-                    }
-                    if (!hasZero)
-                    {
-                        filteredArray[index++] = myJaggedArray[i];
+                        isZeroRow = true;
+                        break;
                     }
                 }
 
-                return filteredArray;
+                if (!isZeroRow)
+                {
+                    filteredArray[index++] = myJaggedArray[i];
+                }
             }
-        
+
+            return filteredArray;
+        }
+
     }
 }
 
